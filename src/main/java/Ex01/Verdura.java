@@ -11,13 +11,13 @@ public class Verdura extends Alimentos{
     //MÉTODOS
     public double tratarAlimentoGrama(double qtdeGramas){
         try {
-            if(qtdeGramas == (int)qtdeGramas || qtdeGramas <= 0){
-                throw new NumberFormatException();
+            if(qtdeGramas == (int)qtdeGramas|| qtdeGramas <= 0){
+                throw new NumberFormatException("INSIRA UM VALOR DECIMAL MAIOR QUE ZERO.");
             }else {
                 System.out.println("VALOR INSERIDO COM SUCESSO!");
             }
         }catch (NumberFormatException exception) {
-            System.out.println("IINSIRA UM VALOR DECIMAL MAIOR QUE ZERO.");
+            System.out.println("INSIRA UM VALOR DECIMAL MAIOR QUE ZERO.");
         }
 
         return qtdeGramas;
@@ -26,7 +26,7 @@ public class Verdura extends Alimentos{
 
     public void adicionarAlimentos(String alimento, double qtdeUnidades){
         if(alimento.isEmpty()) {
-            throw new UnsupportedOperationException();
+            throw new UnsupportedOperationException("O NOME DO ALIMENTO NÃO PODE SER UM VALOR VAZIO.");
         }else{
             listaDeAlimentos.put(alimento,qtdeUnidades);
             System.out.println("ALIMENTO ADICIONADO COM SUCESSO.");

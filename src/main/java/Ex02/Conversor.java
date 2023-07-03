@@ -8,10 +8,11 @@ import java.util.List;
 public class Conversor {
     //ATRIBUTOS
     List<String> moedas = new ArrayList<>();
+    List<Double> valoresMoedas = Arrays.asList(5.25, 4.15, 6.15, 7.50);
 
     //MÉTODOS
     public String tratarTipoMoeda(String tipoMoeda) {
-        List<String> listaMoedas = Arrays.asList("DA", "DC", "EU", "LI");
+        List<String> listaMoedas = Arrays.asList("DÓLAR", "DÓLAR CANADENSE", "EURO", "LIBRA");
         moedas.addAll(listaMoedas);
 
         try {
@@ -35,6 +36,8 @@ public class Conversor {
         }
         return valorAConverter;
     }
+
+
 
 
 

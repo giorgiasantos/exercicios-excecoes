@@ -12,7 +12,7 @@ public class Legume extends Alimentos{
     public int tratarAlimentoUnidade(int qtdeUnidades){
         try {
             if(Math.floor(qtdeUnidades) != qtdeUnidades || qtdeUnidades <= 0){
-                throw new NumberFormatException();
+                throw new NumberFormatException("INSIRA UM VALOR INTEIRO MAIOR QUE ZERO");
             }else {
                 System.out.println("VALOR INSERIDO COM SUCESSO!");
             }
@@ -25,7 +25,7 @@ public class Legume extends Alimentos{
 
     public void adicionarAlimentos(String alimento, Integer qtdeUnidades){
         if(alimento.isEmpty()) {
-            throw new UnsupportedOperationException();
+            throw new UnsupportedOperationException("O NOME DO ALIMENTO NÃO PODE SER UM VALOR VAZIO.");
         }else{
             listaDeAlimentos.put(alimento,qtdeUnidades);
             System.out.println("ALIMENTO ADICIONADO COM SUCESSO.");

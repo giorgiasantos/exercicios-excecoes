@@ -48,41 +48,42 @@ public class Main {
         LocalDate dataAtual = LocalDate.now();
 
         //INÍCIO DA INTERAÇÃO COM O USUÁRIO
-        System.out.println("DIGITE O TIPO DE MOEDA: (DÓLAR = DA | DÓLAR CANADENSE = DC | EURO = EU | LIBRA =  LI)");
-        String tipoMoeda = entrada.next();
+        System.out.println("DIGITE O TIPO DE MOEDA: (DÓLAR | DÓLAR CANADENSE | EURO | LIBRA)");
+        String tipoMoeda = entrada.nextLine();
         conversor.tratarTipoMoeda(tipoMoeda);
 
         //INÍCIO DAS CONDICIONAIS PARA CONVERSÃO
-        if (tipoMoeda.equalsIgnoreCase("DA")) { //DÓLAR
+        if (tipoMoeda.equalsIgnoreCase("DÓLAR")) { //DÓLAR
             System.out.println("DIGITE O VALOR (EM REAL) A SER CONVERTIDO: ");
             valorReal = entrada.nextBigDecimal();
             conversor.tratarValor(valorReal);
                 if(valorReal.compareTo(BigDecimal.ZERO) > 0){
                     dolar.converterParaReal(valorReal);
-                    System.out.println("A MOEDA " + "'" + tipoMoeda.toUpperCase() + "'" + " NA COTAÇÃO DE " + dataAtual + " CONVERTIDA EM REAIS É = R$" + dolar.converterParaReal(valorReal));
+                    System.out.println("A MOEDA " + tipoMoeda.toUpperCase() + " ESTÁ COM COTAÇÃO DE R$" + conversor.valoresMoedas.get(0) + " NA DATA DE HOJE " + dataAtual + ". CONVERTIDA EM REAIS É = R$" + dolar.converterParaReal(valorReal));
                 }
-        } else if (tipoMoeda.equalsIgnoreCase("DC")) { //DÓLAR CANADENSE
+        } else if (tipoMoeda.equalsIgnoreCase("DÓLAR CANADENSE")) { //DÓLAR CANADENSE
             System.out.println("DIGITE O VALOR (EM REAL) A SER CONVERTIDO: ");
             valorReal = entrada.nextBigDecimal();
             conversor.tratarValor(valorReal);
                 if(valorReal.compareTo(BigDecimal.ZERO) > 0) {
                     dolarCa.converterParaReal(valorReal);
-                    System.out.println("A MOEDA " + "'" + tipoMoeda.toUpperCase() + "'" + " NA COTAÇÃO DE " + dataAtual + " CONVERTIDA EM REAIS É = R$" + dolarCa.converterParaReal(valorReal));
+                    System.out.println("A MOEDA " + tipoMoeda.toUpperCase() + " ESTÁ COM COTAÇÃO DE R$" + conversor.valoresMoedas.get(1) + " NA DATA DE HOJE " + dataAtual + ". CONVERTIDA EM REAIS É = R$" + dolar.converterParaReal(valorReal));
                 }
-        } else if (tipoMoeda.equalsIgnoreCase("EU")) { //EURO
+        } else if (tipoMoeda.equalsIgnoreCase("EURO")) { //EURO
             System.out.println("DIGITE O VALOR (EM REAL) A SER CONVERTIDO: ");
             valorReal = entrada.nextBigDecimal();
             conversor.tratarValor(valorReal);
                 if(valorReal.compareTo(BigDecimal.ZERO) > 0) {
-                    System.out.println("A MOEDA " + "'" + tipoMoeda.toUpperCase() + "'" + " NA COTAÇÃO DE " + dataAtual + " CONVERTIDA EM REAIS É = R$" + euro.converterParaReal(valorReal));
+                    euro.converterParaReal(valorReal);
+                    System.out.println("A MOEDA " + tipoMoeda.toUpperCase() + " ESTÁ COM COTAÇÃO DE R$" + conversor.valoresMoedas.get(2) + " NA DATA DE HOJE " + dataAtual + ". CONVERTIDA EM REAIS É = R$" + dolar.converterParaReal(valorReal));
                 }
-        } else if (tipoMoeda.equalsIgnoreCase("li")) { //LIBRA
+        } else if (tipoMoeda.equalsIgnoreCase("LIBRA")) { //LIBRA
             System.out.println("DIGITE O VALOR (EM REAL) A SER CONVERTIDO: ");
             valorReal = entrada.nextBigDecimal();
             conversor.tratarValor(valorReal);
                 if(valorReal.compareTo(BigDecimal.ZERO) > 0) {
                     libra.converterParaReal(valorReal);
-                    System.out.println("A MOEDA " + "'" + tipoMoeda.toUpperCase() + "'" + " NA COTAÇÃO DE " + dataAtual + " CONVERTIDA EM REAIS É = R$" + libra.converterParaReal(valorReal));
+                    System.out.println("A MOEDA " + tipoMoeda.toUpperCase() + " ESTÁ COM COTAÇÃO DE R$" + conversor.valoresMoedas.get(3) + " NA DATA DE HOJE " + dataAtual + ". CONVERTIDA EM REAIS É = R$" + dolar.converterParaReal(valorReal));
                 }
         }
 

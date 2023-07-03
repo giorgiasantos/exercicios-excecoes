@@ -10,7 +10,7 @@ public class Graos extends Alimentos{
     public double tratarAlimentoGrama(double qtdeGramas){
         try {
             if(qtdeGramas == (int)qtdeGramas|| qtdeGramas <= 0){
-                throw new NumberFormatException();
+                throw new NumberFormatException("INSIRA UM VALOR DECIMAL MAIOR QUE ZERO.");
             }else {
                 System.out.println("VALOR INSERIDO COM SUCESSO!");
             }
@@ -23,7 +23,7 @@ public class Graos extends Alimentos{
 
     public void adicionarAlimentos(String alimento, double qtdeUnidades){
         if(alimento.isEmpty()) {
-            throw new UnsupportedOperationException();
+            throw new UnsupportedOperationException("O NOME DO ALIMENTO NÃO PODE SER UM VALOR VAZIO.");
         }else{
             listaDeAlimentos.put(alimento,qtdeUnidades);
             System.out.println("ALIMENTO ADICIONADO COM SUCESSO.");

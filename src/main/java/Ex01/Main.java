@@ -18,7 +18,8 @@ public class Main {
             executaInteracao(alimentos, emVerdura, emLegume, emGraos, emOutros);
 
             System.out.println("DESEJA ADICIONAR OUTRO ALIMENTO? SIM (S) / NÃO (N)");
-            String deNovo = entrada.next();
+            String deNovo = entrada.nextLine();
+
             if (deNovo.equalsIgnoreCase("S")) {
                 executaInteracao(alimentos, emVerdura, emLegume, emGraos, emOutros);
             } else if (deNovo.equalsIgnoreCase("N")) {
@@ -36,12 +37,12 @@ public class Main {
         }
     }
 
-    private static void executaInteracao(Alimentos alimentos, Verdura emVerdura, Legume emLegume, Graos emGraos, Outros emoutros) {
+    private static void executaInteracao(Alimentos alimentos, Verdura emVerdura, Legume emLegume, Graos emGraos, Outros emOutros) {
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("MENU DE ALIMENTOS: VERDURA / LEGUME / GRÃOS / OUTROS.");
         System.out.println("DIGITE A OPÇÃO EQUIVALENTE PARA CONTINUAR: ");
-        String tipoAlimento = entrada.next();
+        String tipoAlimento = entrada.nextLine();
 
         double qtdeGramas;
         int qtdeUnidades;
@@ -51,16 +52,18 @@ public class Main {
         if (tipoAlimento.equalsIgnoreCase("VERDURA")) {
             System.out.println("INFORME A QUANTIDADE DESEJADA EM GRAMAS. USE NÚMERO DECIMAL COM VÍRGULA: ");
             qtdeGramas = entrada.nextDouble();
+            entrada.nextLine();
             emVerdura.tratarAlimentoGrama(qtdeGramas);
             if (qtdeGramas > 0) {
                 System.out.println("DIGITE O NOME DO ALIMENTO QUE DESEJA INSERIR: ");
                 String alimento = entrada.nextLine();
                 emVerdura.adicionarAlimentos(alimento, qtdeGramas);
                 System.out.println(emVerdura.listaDeAlimentos);
-                }
-            } else if (tipoAlimento.equalsIgnoreCase("GRÃOS")) {
+            }
+        } else if (tipoAlimento.equalsIgnoreCase("GRÃOS")) {
                 System.out.println("INFORME A QUANTIDADE DESEJADA EM GRAMAS. USE NÚMERO DECIMAL COM VÍRGULA: ");
                 qtdeGramas = entrada.nextDouble();
+                entrada.nextLine();
                 emGraos.tratarAlimentoGrama(qtdeGramas);
                 if (qtdeGramas > 0) {
                     System.out.println("DIGITE O NOME DO ALIMENTO QUE DESEJA INSERIR: ");
@@ -68,9 +71,10 @@ public class Main {
                     emGraos.adicionarAlimentos(alimento, qtdeGramas);
                     System.out.println(emGraos.listaDeAlimentos);
                 }
-            } else if (tipoAlimento.equalsIgnoreCase("LEGUME")) {
+        } else if (tipoAlimento.equalsIgnoreCase("LEGUME")) {
                 System.out.println("INFORME A QUANTIDADE DESEJADA UNIDADES. USE NÚMERO INTEIRO: ");
                 qtdeUnidades = entrada.nextInt();
+                entrada.nextLine();
                 emLegume.tratarAlimentoUnidade(qtdeUnidades);
                 if (qtdeUnidades > 0) {
                     System.out.println("DIGITE O NOME DO ALIMENTO QUE DESEJA INSERIR: ");
@@ -78,15 +82,16 @@ public class Main {
                     emLegume.adicionarAlimentos(alimento, qtdeUnidades);
                     System.out.println(emLegume.listaDeAlimentos);
                 }
-            } else if (tipoAlimento.equalsIgnoreCase("OUTROS")) {
+        } else if (tipoAlimento.equalsIgnoreCase("OUTROS")) {
                 System.out.println("INFORME A QUANTIDADE DESEJADA UNIDADES. USE NÚMERO INTEIRO: ");
                 qtdeUnidades = entrada.nextInt();
-                emoutros.tratarAlimentoUnidade(qtdeUnidades);
+                entrada.nextLine();
+                emOutros.tratarAlimentoUnidade(qtdeUnidades);
                 if (qtdeUnidades > 0) {
                     System.out.println("DIGITE O NOME DO ALIMENTO QUE DESEJA INSERIR: ");
                     String alimento = entrada.nextLine();
-                    emoutros.adicionarAlimentos(alimento, qtdeUnidades);
-                    System.out.println(emoutros.listaDeAlimentos);
+                    emOutros.adicionarAlimentos(alimento, qtdeUnidades);
+                    System.out.println(emOutros.listaDeAlimentos);
                 }
             }
         }
