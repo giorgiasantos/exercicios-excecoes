@@ -14,7 +14,7 @@ public class Alimentos {
             if(tiposDeAlimentos.contains(novoAlimento.toUpperCase())){
                 System.out.println("TIPO DE ALIMENTO VALIDADO COM SUCESSO! :D");
             }else {
-                throw new IllegalArgumentException("TIPO DE ALIMENTO INVÁLIDO.");
+                throw new IllegalArgumentException("TIPO DE ALIMENTO INVÁLIDO!");
             }
         }catch(IllegalArgumentException exception){
             System.out.println("TIPO DE ALIMENTO INVÁLIDO!");

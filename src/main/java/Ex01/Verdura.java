@@ -3,24 +3,26 @@ package Ex01;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AlimentosEmGrama extends Alimentos{
+public class Verdura extends Alimentos{
 
     //ATRIBUTOS
-    Alimentos alimentos;
     Map<String, Double> listaDeAlimentos = new HashMap<>();
 
     //MÉTODOS
     public double tratarAlimentoGrama(double qtdeGramas){
         try {
-            if(qtdeGramas == (int)qtdeGramas){
+            if(qtdeGramas == (int)qtdeGramas || qtdeGramas <= 0){
                 throw new NumberFormatException();
+            }else {
+                System.out.println("VALOR INSERIDO COM SUCESSO!");
             }
-            System.out.println("VALOR INSERIDO COM SUCESSO!");
         }catch (NumberFormatException exception) {
-            System.out.println("INSIRA UM VALOR DECIMAL COM VÍRGULA.");
+            System.out.println("IINSIRA UM VALOR DECIMAL MAIOR QUE ZERO.");
         }
+
         return qtdeGramas;
     }
+
 
     public void adicionarAlimentos(String alimento, double qtdeUnidades){
         if(alimento.isEmpty()) {
@@ -34,10 +36,10 @@ public class AlimentosEmGrama extends Alimentos{
     public void mostrarLista(){
         System.out.println(">>>LISTA DE ALIMENTOS<<<");
         for (String chave : listaDeAlimentos.keySet()) {
-            System.out.println("Alimento: " + chave + " -> quantidade = " + listaDeAlimentos.get(chave));
+            System.out.println("Alimento: " + chave + " -> quantidade = " + listaDeAlimentos.get(chave) + "g");
         }
 
-        System.out.println("A QUANTIDADE DE ALIMENTOS DO TIPO VERDURA/GRÃOS É " + listaDeAlimentos.size());
+        System.out.println("A QUANTIDADE DE ALIMENTOS DO TIPO VERDURA É " + listaDeAlimentos.size());
     }
 
 }
